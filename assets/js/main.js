@@ -121,13 +121,14 @@ var HC1 = {
 };
 
 /* ===== CALCULATOR PAGE — Steps 2-5 ===== */
+// Per-carat broker prices in CAD
 var HC_PPC = {
-  natural: { commercial: 3800, premium: 6200, investment: 12000 },
-  lab:     { commercial:  900, premium: 1600, investment:  3200 }
+  natural: { commercial: 5200, premium: 8800, investment: 16500 },
+  lab:     { commercial: 1250, premium: 2300, investment:  4600 }
 };
 
 var HC = {
-  s: { step: 2, intent: null, type: null, carat: 1.0, quality: null, currency: 'USD' },
+  s: { step: 2, intent: null, type: null, carat: 1.0, quality: null, currency: 'CAD' },
 
   pick: function (el) {
     var field = el.dataset.field;
@@ -159,7 +160,7 @@ var HC = {
     document.querySelectorAll('.hc-curr-btn').forEach(function (b) { b.classList.remove('active'); });
     btn.classList.add('active');
     var sym = document.getElementById('hcSym');
-    if (sym) sym.textContent = code === 'AED' ? 'د.إ' : '$';
+    if (sym) sym.textContent = code === 'USD' ? 'US$' : 'CA$';
     HC._chk();
   },
 
@@ -204,8 +205,8 @@ var HC = {
     var our = ppc * s.carat;
     var ret = our * 1.45;
     var sav = ret - our;
-    var rate = s.currency === 'AED' ? 3.67 : 1;
-    var sym  = s.currency === 'AED' ? 'د.إ ' : '$';
+    var rate = s.currency === 'USD' ? 0.74 : 1;
+    var sym  = s.currency === 'USD' ? 'US$ ' : 'CA$ ';
     var fmt  = function (v) { return sym + Math.round(v * rate).toLocaleString(); };
     var set  = function (id, val) { var el = document.getElementById(id); if (el) el.textContent = val; };
     set('hcRetail',   fmt(ret));
@@ -230,7 +231,7 @@ var HC = {
       'Name: '    + (((document.getElementById('hcName')   || {}).value) || '')
     );
     var wa = document.getElementById('hcWACTA');
-    if (wa) wa.href = 'https://wa.me/971501234567?text=' + msg;
+    if (wa) wa.href = 'https://wa.me/16135550100?text=' + msg;
     HC._go(6);
   },
 
