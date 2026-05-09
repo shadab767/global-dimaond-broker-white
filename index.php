@@ -141,37 +141,37 @@
 
     <div class="h-track" id="hTrack">
       <article class="stone-card">
-        <div class="img"><img alt="The Marais — Round Brilliant Diamond" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=85" loading="lazy" /></div>
+        <div class="img"><img alt="The Marais — Round Brilliant Diamond" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/sparkling-diamond-held-by-tweezers-close-up-view-2026-03-31-04-36-10-utc.jpg' ); ?>" loading="lazy" /></div>
         <div class="meta"><span>No. 01</span><span>Round Brilliant</span></div>
         <h3>The Marais</h3>
         <div class="specs"><span><strong>4.21ct</strong>Weight</span><span><strong>D / IF</strong>Grade</span><span><strong>Triple X</strong>Cut</span></div>
       </article>
       <article class="stone-card">
-        <div class="img"><img alt="Argyle 1718 — Fancy Vivid Pink Diamond" src="https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=1200&q=85" loading="lazy" /></div>
+        <div class="img"><img alt="Argyle 1718 — Fancy Vivid Pink Diamond" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/close-up-of-shiny-gemstone-held-by-tweezers-2026-03-26-01-06-39-utc.jpg' ); ?>" loading="lazy" /></div>
         <div class="meta"><span>No. 02</span><span>Argyle Pink</span></div>
         <h3>Argyle 1718</h3>
         <div class="specs"><span><strong>1.04ct</strong>Weight</span><span><strong>FP / VS1</strong>Grade</span><span><strong>Type IIa</strong>Rarity</span></div>
       </article>
       <article class="stone-card">
-        <div class="img"><img alt="Hôtel Drouot — Emerald Cut Diamond" src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1200&q=85" loading="lazy" /></div>
+        <div class="img"><img alt="Hôtel Drouot — Emerald Cut Diamond" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/elegant-diamond-ring-on-gems-2026-03-13-01-23-39-utc.jpg' ); ?>" loading="lazy" /></div>
         <div class="meta"><span>No. 03</span><span>Emerald Cut</span></div>
         <h3>H&ocirc;tel Drouot</h3>
         <div class="specs"><span><strong>7.66ct</strong>Weight</span><span><strong>E / VVS2</strong>Grade</span><span><strong>Step</strong>Facets</span></div>
       </article>
       <article class="stone-card">
-        <div class="img"><img alt="Polaris — Loose Diamond D/IF" src="https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?auto=format&fit=crop&w=1200&q=85" loading="lazy" /></div>
+        <div class="img"><img alt="Polaris — Loose Diamond D/IF" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/elegant-diamond-ring-on-shimmering-black-fabric-2026-01-06-00-29-48-utc.jpg' ); ?>" loading="lazy" /></div>
         <div class="meta"><span>No. 04</span><span>Loose Stone</span></div>
         <h3>Polaris</h3>
         <div class="specs"><span><strong>5.18ct</strong>Weight</span><span><strong>D / IF</strong>Grade</span><span><strong>Triple X</strong>Cut</span></div>
       </article>
       <article class="stone-card">
-        <div class="img"><img alt="Lumière de Nuit — Pear Diamond D/FL" src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1200&q=85" loading="lazy" /></div>
+        <div class="img"><img alt="Lumière de Nuit — Pear Diamond D/FL" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/sparkling-gems-reflecting-light-in-a-soft-bokeh-2026-03-26-03-35-53-utc.jpg' ); ?>" loading="lazy" /></div>
         <div class="meta"><span>No. 05</span><span>Pear</span></div>
         <h3>Lumi&egrave;re de Nuit</h3>
         <div class="specs"><span><strong>9.02ct</strong>Weight</span><span><strong>D / FL</strong>Grade</span><span><strong>None</strong>Fluorescence</span></div>
       </article>
       <article class="stone-card">
-        <div class="img"><img alt="No. VII — Loose Stone D/VVS1 Antwerp Cut" src="https://images.unsplash.com/photo-1531995811006-35cb42e1a022?auto=format&fit=crop&w=1200&q=85" loading="lazy" /></div>
+        <div class="img"><img alt="No. VII — Loose Stone D/VVS1 Antwerp Cut" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/sparkling-diamond-on-a-bed-of-smaller-gems-2026-01-06-00-44-36-utc.jpg' ); ?>" loading="lazy" /></div>
         <div class="meta"><span>No. 06</span><span>Loose Stone</span></div>
         <h3>No. VII</h3>
         <div class="specs"><span><strong>3.30ct</strong>Weight</span><span><strong>D / VVS1</strong>Grade</span><span><strong>Antwerp</strong>Cut</span></div>
@@ -246,19 +246,19 @@
     </div>
     <div class="articles stagger">
       <a class="article" href="#">
-        <div class="thumb"><img alt="Beyond the Four Cs" src="https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=1200&q=85" loading="lazy" /></div>
+        <div class="thumb"><img alt="Beyond the Four Cs" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/sparkling-diamond-held-by-tweezers-close-up-view-2026-03-31-04-36-10-utc.jpg' ); ?>" loading="lazy" /></div>
         <div class="cat">Education</div>
         <h4>Beyond the Four Cs: how master brokers actually grade a stone.</h4>
         <div class="read">7 min read &middot; April 2026</div>
       </a>
       <a class="article" href="#">
-        <div class="thumb"><img alt="Argyle Pink Market" src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1200&q=85" loading="lazy" /></div>
+        <div class="thumb"><img alt="Argyle Pink Market" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/elegant-diamond-ring-on-gems-2026-03-13-01-23-39-utc.jpg' ); ?>" loading="lazy" /></div>
         <div class="cat">Provenance</div>
         <h4>What happens to the Argyle pink market now the mine has closed.</h4>
         <div class="read">12 min read &middot; March 2026</div>
       </a>
       <a class="article" href="#">
-        <div class="thumb"><img alt="Auction Season 2026" src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=85" loading="lazy" /></div>
+        <div class="thumb"><img alt="Auction Season 2026" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/sparkling-gems-reflecting-light-in-a-soft-bokeh-2026-03-26-03-35-53-utc.jpg' ); ?>" loading="lazy" /></div>
         <div class="cat">Investment</div>
         <h4>Auction season 2026: the colour grades quietly outperforming gold.</h4>
         <div class="read">9 min read &middot; February 2026</div>
