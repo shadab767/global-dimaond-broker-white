@@ -1,4 +1,4 @@
-/* Maison Lumière — main.js */
+/* The Global Diamond Broker — main.js */
 (function () {
 
   // ===== Flip nav to dark ink while over the white hero =====
@@ -6,7 +6,7 @@
   var hero  = document.querySelector('.hero');
 
   function updateNavMode() {
-    if (!hero) return;
+    if (!hero || !navEl) return;
     var heroBottom = hero.getBoundingClientRect().bottom;
     if (heroBottom > 80) {
       navEl.classList.add('dark');
@@ -97,8 +97,151 @@
   if (track && hPrev && hNext) {
     hPrev.addEventListener('click', function () { track.scrollBy({ left: -420, behavior: 'smooth' }); });
     hNext.addEventListener('click', function () { track.scrollBy({ left:  420, behavior: 'smooth' }); });
-    // prevent Lenis from hijacking the horizontal track wheel
     track.setAttribute('data-lenis-prevent', '');
   }
 
 })();
+
+/* ===== HERO — Step 1 intent picker & redirect ===== */
+var HC1 = {
+  intent: null,
+  pick: function (el) {
+    document.querySelectorAll('#hc1Pills .hc-pill').forEach(function (b) { b.classList.remove('active'); });
+    el.classList.add('active');
+    HC1.intent = el.dataset.value;
+    var btn = document.getElementById('hcN1');
+    if (btn) btn.disabled = false;
+  },
+  go: function () {
+    if (!HC1.intent) return;
+    var btn  = document.getElementById('hcN1');
+    var base = (btn && btn.dataset.url) ? btn.dataset.url.replace(/\/$/, '') : '/calculator';
+    window.location.href = base + '?intent=' + encodeURIComponent(HC1.intent);
+  }
+};
+
+/* ===== CALCULATOR PAGE — Steps 2-5 ===== */
+var HC_PPC = {
+  natural: { commercial: 3800, premium: 6200, investment: 12000 },
+  lab:     { commercial:  900, premium: 1600, investment:  3200 }
+};
+
+var HC = {
+  s: { step: 2, intent: null, type: null, carat: 1.0, quality: null, currency: 'USD' },
+
+  pick: function (el) {
+    var field = el.dataset.field;
+    el.closest('.hc-pills').querySelectorAll('.hc-pill').forEach(function (b) { b.classList.remove('active'); });
+    el.classList.add('active');
+    HC.s[field] = el.dataset.value;
+    HC._chk();
+  },
+
+  _chk: function () {
+    var s = HC.s, btn;
+    if (s.step === 2) { btn = document.getElementById('hcN2'); if (btn) btn.disabled = !(s.type && s.quality); }
+    if (s.step === 3) { btn = document.getElementById('hcN3'); if (btn) btn.disabled = HC._rawBudget() < 500; }
+  },
+
+  _rawBudget: function () {
+    var el = document.getElementById('hcBudget');
+    return parseInt(((el ? el.value : '') || '').replace(/[^0-9]/g, '')) || 0;
+  },
+
+  setCarat: function (v) {
+    HC.s.carat = parseFloat(v);
+    var d = document.getElementById('hcCaratVal');
+    if (d) d.textContent = parseFloat(v).toFixed(1) + ' ct';
+  },
+
+  setCurr: function (code, btn) {
+    HC.s.currency = code;
+    document.querySelectorAll('.hc-curr-btn').forEach(function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var sym = document.getElementById('hcSym');
+    if (sym) sym.textContent = code === 'AED' ? 'د.إ' : '$';
+    HC._chk();
+  },
+
+  fmtBudget: function (inp) {
+    var raw = inp.value.replace(/[^0-9]/g, '');
+    inp.value = raw ? parseInt(raw, 10).toLocaleString() : '';
+    HC._chk();
+  },
+
+  next: function () { HC._go(HC.s.step + 1); },
+
+  prev: function () {
+    if (HC.s.step === 2) {
+      var page = document.getElementById('calcPage');
+      window.location.href = (page && page.dataset.homeUrl) ? page.dataset.homeUrl : '/';
+      return;
+    }
+    HC._go(HC.s.step - 1);
+  },
+
+  _go: function (n) {
+    var curId = HC.s.step <= 5 ? 'hcStep' + HC.s.step : 'hcStepOk';
+    var cur   = document.getElementById(curId);
+    if (cur) cur.classList.remove('active');
+    HC.s.step = n;
+    var nxtId = n <= 5 ? 'hcStep' + n : 'hcStepOk';
+    var nxt   = document.getElementById(nxtId);
+    if (nxt) nxt.classList.add('active');
+    // Progress: HC steps 2-5 map to visual steps 1-4
+    var visual = Math.min(Math.max(n - 1, 1), 4);
+    var fill   = document.getElementById('calcProgFill');
+    var label  = document.getElementById('calcProgLabel');
+    if (fill)  fill.style.width = Math.round((visual / 4) * 100) + '%';
+    if (label) label.textContent = n <= 5 ? 'Step ' + visual + ' of 4' : 'Complete';
+    if (n === 4) HC._calc();
+    HC._chk();
+  },
+
+  _calc: function () {
+    var s   = HC.s;
+    var ppc = (HC_PPC[s.type || 'natural'] || HC_PPC.natural)[s.quality || 'premium'];
+    var our = ppc * s.carat;
+    var ret = our * 1.45;
+    var sav = ret - our;
+    var rate = s.currency === 'AED' ? 3.67 : 1;
+    var sym  = s.currency === 'AED' ? 'د.إ ' : '$';
+    var fmt  = function (v) { return sym + Math.round(v * rate).toLocaleString(); };
+    var set  = function (id, val) { var el = document.getElementById(id); if (el) el.textContent = val; };
+    set('hcRetail',   fmt(ret));
+    set('hcOurPrice', fmt(our));
+    set('hcSavings',  fmt(sav));
+  },
+
+  checkLead: function () {
+    var name = ((document.getElementById('hcName') || {}).value || '').trim();
+    var wa   = ((document.getElementById('hcWA')   || {}).value || '').trim();
+    var btn  = document.getElementById('hcSubmit');
+    if (btn) btn.disabled = !(name.length > 1 && wa.length > 6);
+  },
+
+  submit: function () {
+    var s   = HC.s;
+    var msg = encodeURIComponent(
+      'Hi Colin! I used the savings calculator.\n' +
+      'Intent: '  + (s.intent  || '') + '\n' +
+      'Diamond: ' + s.carat + 'ct ' + (s.type || '') + ' (' + (s.quality || '') + ' grade)\n' +
+      'Budget: '  + (((document.getElementById('hcBudget') || {}).value) || '') + ' ' + s.currency + '\n' +
+      'Name: '    + (((document.getElementById('hcName')   || {}).value) || '')
+    );
+    var wa = document.getElementById('hcWACTA');
+    if (wa) wa.href = 'https://wa.me/971501234567?text=' + msg;
+    HC._go(6);
+  },
+
+  init: function () {
+    var page = document.getElementById('calcPage');
+    if (!page) return;
+    var params  = new URLSearchParams(window.location.search);
+    HC.s.intent = params.get('intent') || 'exploring';
+    HC.s.step   = 1;
+    HC._go(2);
+  }
+};
+
+document.addEventListener('DOMContentLoaded', function () { HC.init(); });

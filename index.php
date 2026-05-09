@@ -16,12 +16,33 @@
         <span class="ind">Most <em>Beautiful</em></span><br/>
         Diamonds.
       </h1>
+
+      <!-- HERO CALCULATOR — Step 1 only; continues on /calculator/ -->
+      <div class="hc" id="heroCalc" role="region" aria-label="Diamond savings calculator">
+        <div class="hc-header">
+          <span class="hc-eyebrow">Private Savings Calculator &nbsp;&middot;&nbsp; 2 min &nbsp;&middot;&nbsp; No commitment</span>
+          <div class="hc-dots" aria-hidden="true">
+            <span class="hc-dot active"></span><span class="hc-dot"></span><span class="hc-dot"></span><span class="hc-dot"></span><span class="hc-dot"></span>
+          </div>
+        </div>
+        <p class="hc-q">What are you looking for?</p>
+        <div class="hc-pills" id="hc1Pills">
+          <button class="hc-pill" data-value="engagement" onclick="HC1.pick(this)">Engagement</button>
+          <button class="hc-pill" data-value="investment"  onclick="HC1.pick(this)">Investment</button>
+          <button class="hc-pill" data-value="resale"      onclick="HC1.pick(this)">Resale</button>
+          <button class="hc-pill" data-value="exploring"   onclick="HC1.pick(this)">Just Exploring</button>
+        </div>
+        <button class="hc-cta" id="hcN1" disabled
+          data-url="<?php echo esc_url(home_url('/calculator/')); ?>"
+          onclick="HC1.go()">
+          Show My Savings &nbsp;&rarr;
+        </button>
+      </div><!-- /hc -->
     </div>
 
     <div class="hero-foot">
       <div class="scroll-prompt"><span class="line"></span> Scroll to explore</div>
-      <p class="lede">Retailers mark up diamonds 40&ndash;60% before you see them. Skip every middleman &mdash; source directly at broker pricing.</p>
-      <div class="stats">
+<div class="stats">
         <div><strong>43 yrs</strong>Sourcing</div>
         <div><strong>30&ndash;40%</strong>Below Retail</div>
         <div><strong>GIA &middot; IGI</strong>Certified Only</div>
