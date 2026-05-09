@@ -6,23 +6,25 @@
     <div class="hero-grain"></div>
 
     <div class="hero-meta-top">
-      <span>Maison Lumi&egrave;re &middot; Antwerp &middot; NY &middot; Sydney</span>
-      <span class="num-mono">Established 1983 &middot; 43 years in trade</span>
+      <span>The Global Diamond Broker &middot; Est. 1983</span>
+      <span class="num-mono">Private Broker Pricing &middot; GIA &middot; IGI Certified</span>
     </div>
 
     <div class="hero-content">
       <h1 data-scroll data-scroll-speed="1">
-        Step into<br/>
-        <span class="ind">the <em>light.</em></span>
+        The World&rsquo;s<br/>
+        <span class="ind">Most <em>Beautiful</em></span><br/>
+        Diamonds.
       </h1>
     </div>
 
     <div class="hero-foot">
-      <div class="scroll-prompt"><span class="line"></span> Scroll to enter the atelier</div>
-      <p class="lede">Forty&#8209;three years brokering the most beautiful diamonds on earth &mdash; directly to the people who wear them.</p>
+      <div class="scroll-prompt"><span class="line"></span> Scroll to explore</div>
+      <p class="lede">Retailers mark up diamonds 40&ndash;60% before you see them. Skip every middleman &mdash; source directly at broker pricing.</p>
       <div class="stats">
-        <div><strong>2,400+</strong>Stones placed</div>
-        <div><strong>$420M</strong>Brokered to date</div>
+        <div><strong>43 yrs</strong>Sourcing</div>
+        <div><strong>30&ndash;40%</strong>Below Retail</div>
+        <div><strong>GIA &middot; IGI</strong>Certified Only</div>
       </div>
     </div>
   </section>
@@ -39,19 +41,19 @@
   <section id="realm" class="pillar-section">
     <div class="stacked">
       <h2>
-        <span class="row" data-scroll data-scroll-speed="2"><span>Step into a&nbsp;</span></span>
-        <span class="row" data-scroll data-scroll-speed="1"><span><em>realm</em>&nbsp; where light</span></span>
-        <span class="row" data-scroll data-scroll-speed="0.4"><span>becomes legacy.</span></span>
+        <span class="row" data-scroll data-scroll-speed="2"><span>What It Feels Like&nbsp;</span></span>
+        <span class="row" data-scroll data-scroll-speed="1"><span>to Buy <em>Differently.</em></span></span>
       </h2>
     </div>
     <div class="body" data-scroll data-scroll-speed="0.6">
       <div class="left">
         <div class="num">/01</div>
-        <div class="label">The House</div>
+        <div class="label">The Experience</div>
       </div>
       <div>
-        <p><strong>Maison Lumi&egrave;re is a private brokerage, not a showroom.</strong> We don&rsquo;t keep inventory. We don&rsquo;t push what&rsquo;s on hand. We represent the buyer &mdash; sourcing extraordinary stones at the wholesale tier on your behalf, at a price that reflects their true value rather than five layers of retail margin.</p>
-        <p style="margin-top:24px">Every stone we place has been chosen against a brief. Every commission has been built around the diamond, never the other way around. The result is a small, deliberate practice for collectors, couples and connoisseurs who want what is real &mdash; and what is theirs.</p>
+        <p><strong>Most people buying a diamond have one experience:</strong> walking into a store, being guided toward whatever is in stock, and paying whatever the margin demands. The price is set. The selection is limited. The advice is compromised.</p>
+        <p style="margin-top:24px">Working with a private broker is the opposite. We begin with your vision &mdash; the occasion, the style, the stone you&rsquo;ve always imagined. Then we source it directly from the world&rsquo;s finest cutting houses and trading floors that no retail showroom will ever show you.</p>
+        <p style="margin-top:24px">You receive HD video, GIA or IGI certificates, and a completely transparent breakdown of what the same stone would cost at retail &mdash; and why it doesn&rsquo;t have to. No pressure. No inventory bias. No mystery.</p>
       </div>
     </div>
   </section>
@@ -73,23 +75,23 @@
     </div>
   </section>
 
-  <!-- STACKED HEADLINE — Philosophy -->
+  <!-- STACKED HEADLINE — The Difference -->
   <section class="pillar-section">
     <div class="stacked">
       <h2>
-        <span class="row" data-scroll data-scroll-speed="1.6"><span>Beauty is&nbsp;</span></span>
-        <span class="row" data-scroll data-scroll-speed="0.8"><span>the <em>only</em> promise</span></span>
-        <span class="row" data-scroll data-scroll-speed="0.2"><span>worth keeping.</span></span>
+        <span class="row" data-scroll data-scroll-speed="1.6"><span>They Sell from Stock.&nbsp;</span></span>
+        <span class="row" data-scroll data-scroll-speed="0.8"><span>We <em>Source</em></span></span>
+        <span class="row" data-scroll data-scroll-speed="0.2"><span>for You.</span></span>
       </h2>
     </div>
     <div class="body" data-scroll data-scroll-speed="0.5">
       <div class="left">
         <div class="num">/02</div>
-        <div class="label">Philosophy</div>
+        <div class="label">The Difference</div>
       </div>
       <div>
-        <p><strong>There will always be bigger. There will always be smaller.</strong> But there will never be more beautiful than the stone we have chosen for you. That is the only test we accept &mdash; and the only one that survives forty years of ownership.</p>
-        <p style="margin-top:24px">Education, transparency, access, and craftsmanship are not value&#8209;adds; they are the work itself. Imagination meeting execution; the most important moments of a life beginning with the most beautiful diamonds on earth.</p>
+        <p><strong>Retailers are limited to what they&rsquo;ve already bought</strong> &mdash; marked up through every layer of the supply chain. As brokers, we don&rsquo;t carry stock or push what&rsquo;s on hand. We represent the buyer, not the inventory.</p>
+        <p style="margin-top:24px">We go out and source the most exceptional diamond on your behalf, at the true market price. No inventory bias. No hidden margin. Just the stone that is right for you, at what it actually costs &mdash; 30&ndash;40% below what any retailer will offer.</p>
       </div>
     </div>
   </section>
@@ -157,9 +159,9 @@
     <div class="wrap">
       <div class="mark" data-scroll data-scroll-speed="1">&ldquo;</div>
       <blockquote data-scroll data-scroll-speed="0.5">
-        Retailers sell from inventory. <em>Brokers represent you.</em> The difference lives in every stone we ever place.
+        There will always be bigger. There will always be smaller. But there will never be more <em>beautiful</em> than ours &mdash; and ultimately yours.
       </blockquote>
-      <cite data-scroll data-scroll-speed="0.3"><strong>Colin &middot; Founder</strong>Antwerp &middot; Forty&#8209;three years in trade</cite>
+      <cite data-scroll data-scroll-speed="0.3"><strong>Colin &middot; The Global Diamond Broker</strong>Est. 1983 &middot; 43 years in trade</cite>
     </div>
   </section>
 
@@ -187,14 +189,14 @@
         <img data-scroll data-scroll-speed="-1.5" alt="Master broker portrait" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1400&q=85" loading="lazy" />
       </div>
       <div class="copy">
-        <span class="eyebrow"><span class="dot"></span>The Atelier</span>
-        <h2 data-scroll data-scroll-speed="0.5">A career on the <em>other side</em><br/>of the counter.</h2>
-        <p>Trained under Edward Gryspeerdt &mdash; a former De Beers site dealer &mdash; and Eddy Elzas of the Rainbow Collection, our founder cut his teeth in Antwerp before launching a national jewellery chain and being appointed one of the first five global partners of the Argyle Pink Diamond Mine.</p>
-        <p>He successfully bid on some of the rarest pinks ever released and brokered exceptional stones across North America as Distribution Manager for Grayson&rsquo;s of Antwerp. Today, Maison Lumi&egrave;re channels four decades of insider knowledge &mdash; sourcing, grading, pricing, negotiation &mdash; directly to private clients.</p>
+        <span class="eyebrow"><span class="dot"></span>The Global Diamond Broker &mdash; Est. 1983</span>
+        <h2 data-scroll data-scroll-speed="0.5">43 Years. <em>Every Side</em><br/>of the Industry.</h2>
+        <p>With over 43 years in the diamond industry, Colin has worked every side of it &mdash; from launching a national jewellery chain to being appointed one of the first five global partners of the iconic Argyle Pink Diamond Mine, where he successfully bid on some of the rarest pink diamonds ever released.</p>
+        <p>As North American Distribution Manager for Grayson&rsquo;s Diamonds of Antwerp, Colin supplied exceptional stones across North America. Trained under Edward Gryspeerdt &mdash; a former De Beers site dealer &mdash; and Eddy Elzas of the Rainbow Collection, he helps clients today skip retail myths and markups and access the most beautiful diamonds on earth, directly.</p>
         <div class="credentials" data-scroll data-scroll-speed="0.3">
           <div><div class="v">43</div><div class="l">Years in trade</div></div>
-          <div><div class="v">$420M+</div><div class="l">Brokered to date</div></div>
-          <div><div class="v">5 / 5</div><div class="l">Argyle global partners</div></div>
+          <div><div class="v">ARGYLE</div><div class="l">1 of 5 Partners</div></div>
+          <div><div class="v">DE BEERS</div><div class="l">Lineage</div></div>
         </div>
       </div>
     </div>
@@ -235,11 +237,11 @@
   <section id="contact" class="cta">
     <div class="wrap">
       <h2 data-scroll data-scroll-speed="1">
-        Unlock worlds<br/>
-        of <em>wonder.</em>
+        Looking for<br/>
+        Something <em>Exceptional?</em>
       </h2>
-      <p data-scroll data-scroll-speed="0.4">Begin a private consultation. Whether you are searching for a specific stone, commissioning a piece, or simply opening a conversation &mdash; we reply personally within twenty&#8209;four hours.</p>
-      <a class="pill" href="#" data-scroll data-scroll-speed="0.2">Begin a Private Consultation &rarr;</a>
+      <p data-scroll data-scroll-speed="0.4">The more details you share, the better we can assist you. Whether you&rsquo;re looking for a specific diamond, a custom piece, or just starting your search &mdash; we reply personally within twenty&#8209;four hours.</p>
+      <a class="pill" href="#contact" data-scroll data-scroll-speed="0.2">Begin a Private Consultation &rarr;</a>
     </div>
   </section>
 
