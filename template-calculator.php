@@ -48,23 +48,38 @@ $home_url = esc_url( home_url( '/' ) );
         <!-- Step 2 — Type + Carat + Quality -->
         <div class="hc-step" id="hcStep2">
           <p class="hc-q">Diamond type</p>
-          <div class="hc-pills">
-            <button class="hc-pill" data-field="type" data-value="natural" onclick="HC.pick(this)">Natural</button>
-            <button class="hc-pill" data-field="type" data-value="lab"     onclick="HC.pick(this)">Lab-Grown</button>
+          <div class="hc-tiles">
+            <button class="hc-tile" data-field="type" data-value="natural" onclick="HC.pick(this)">
+              <span class="hc-tile-label">Natural</span>
+              <span class="hc-tile-desc">Earth-mined, certified</span>
+            </button>
+            <button class="hc-tile" data-field="type" data-value="lab" onclick="HC.pick(this)">
+              <span class="hc-tile-label">Lab-Grown</span>
+              <span class="hc-tile-desc">Identical, lower cost</span>
+            </button>
           </div>
           <div class="hc-slider">
             <div class="hc-slider-top">
-              <span class="hc-q" style="margin:0">Carat size</span>
+              <span class="hc-q" style="margin:0;font-size:16px">Carat size</span>
               <strong class="hc-carat-val" id="hcCaratVal">1.0 ct</strong>
             </div>
             <input class="hc-range" type="range" id="hcCaratR" min="0.3" max="5" step="0.1" value="1.0" oninput="HC.setCarat(this.value)" aria-label="Carat size">
             <div class="hc-range-ticks" aria-hidden="true"><span>0.3</span><span>1 ct</span><span>2 ct</span><span>3 ct</span><span>5 ct</span></div>
           </div>
           <p class="hc-q" style="margin-top:18px">Quality preference</p>
-          <div class="hc-pills">
-            <button class="hc-pill" data-field="quality" data-value="commercial" onclick="HC.pick(this)">Commercial</button>
-            <button class="hc-pill" data-field="quality" data-value="premium"    onclick="HC.pick(this)">Premium</button>
-            <button class="hc-pill" data-field="quality" data-value="investment" onclick="HC.pick(this)">Investment</button>
+          <div class="hc-tiles" style="grid-template-columns:repeat(3,1fr)">
+            <button class="hc-tile" data-field="quality" data-value="commercial" onclick="HC.pick(this)">
+              <span class="hc-tile-label">Commercial</span>
+              <span class="hc-tile-desc">Excellent value</span>
+            </button>
+            <button class="hc-tile" data-field="quality" data-value="premium" onclick="HC.pick(this)">
+              <span class="hc-tile-label">Premium</span>
+              <span class="hc-tile-desc">Most popular</span>
+            </button>
+            <button class="hc-tile" data-field="quality" data-value="investment" onclick="HC.pick(this)">
+              <span class="hc-tile-label">Investment</span>
+              <span class="hc-tile-desc">Top 5% of stones</span>
+            </button>
           </div>
           <div class="hc-nav">
             <button class="hc-back" onclick="HC.prev()">&#8592; Back</button>

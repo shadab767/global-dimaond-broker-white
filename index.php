@@ -26,11 +26,23 @@
           </div>
         </div>
         <p class="hc-q">What are you looking for?</p>
-        <div class="hc-pills" id="hc1Pills">
-          <button class="hc-pill" data-value="engagement" onclick="HC1.pick(this)">Engagement</button>
-          <button class="hc-pill" data-value="investment"  onclick="HC1.pick(this)">Investment</button>
-          <button class="hc-pill" data-value="resale"      onclick="HC1.pick(this)">Resale</button>
-          <button class="hc-pill" data-value="exploring"   onclick="HC1.pick(this)">Just Exploring</button>
+        <div class="hc-tiles" id="hc1Pills">
+          <button class="hc-tile" data-value="engagement" onclick="HC1.pick(this)">
+            <span class="hc-tile-label">Engagement</span>
+            <span class="hc-tile-desc">Proposal &amp; bridal</span>
+          </button>
+          <button class="hc-tile" data-value="investment" onclick="HC1.pick(this)">
+            <span class="hc-tile-label">Investment</span>
+            <span class="hc-tile-desc">Store-of-value stones</span>
+          </button>
+          <button class="hc-tile" data-value="resale" onclick="HC1.pick(this)">
+            <span class="hc-tile-label">Resale</span>
+            <span class="hc-tile-desc">Estate &amp; upgrade</span>
+          </button>
+          <button class="hc-tile" data-value="exploring" onclick="HC1.pick(this)">
+            <span class="hc-tile-label">Exploring</span>
+            <span class="hc-tile-desc">Just browsing options</span>
+          </button>
         </div>
         <button class="hc-cta" id="hcN1" disabled
           data-url="<?php echo esc_url(home_url('/calculator/')); ?>"
@@ -207,7 +219,7 @@
   <section class="atelier">
     <div class="grid">
       <div class="img-wrap">
-        <img data-scroll data-scroll-speed="-1.5" alt="Master broker portrait" src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1400&q=85" loading="lazy" />
+        <img data-scroll data-scroll-speed="-1.5" alt="Colin — The Global Diamond Broker" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/Colin.jpg' ); ?>" loading="lazy" />
       </div>
       <div class="copy">
         <span class="eyebrow"><span class="dot"></span>The Global Diamond Broker &mdash; Est. 1983</span>

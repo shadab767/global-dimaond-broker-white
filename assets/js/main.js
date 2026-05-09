@@ -106,7 +106,7 @@
 var HC1 = {
   intent: null,
   pick: function (el) {
-    document.querySelectorAll('#hc1Pills .hc-pill').forEach(function (b) { b.classList.remove('active'); });
+    document.querySelectorAll('#hc1Pills .hc-tile').forEach(function (b) { b.classList.remove('active'); });
     el.classList.add('active');
     HC1.intent = el.dataset.value;
     var btn = document.getElementById('hcN1');
@@ -132,7 +132,7 @@ var HC = {
 
   pick: function (el) {
     var field = el.dataset.field;
-    el.closest('.hc-pills').querySelectorAll('.hc-pill').forEach(function (b) { b.classList.remove('active'); });
+    el.closest('.hc-tiles').querySelectorAll('.hc-tile').forEach(function (b) { b.classList.remove('active'); });
     el.classList.add('active');
     HC.s[field] = el.dataset.value;
     HC._chk();
@@ -207,11 +207,23 @@ var HC = {
     var sav = ret - our;
     var rate = s.currency === 'USD' ? 0.74 : 1;
     var sym  = s.currency === 'USD' ? 'US$ ' : 'CA$ ';
-    var fmt  = function (v) { return sym + Math.round(v * rate).toLocaleString(); };
-    var set  = function (id, val) { var el = document.getElementById(id); if (el) el.textContent = val; };
-    set('hcRetail',   fmt(ret));
-    set('hcOurPrice', fmt(our));
-    set('hcSavings',  fmt(sav));
+    HC._animateValue('hcRetail',   Math.round(ret * rate), sym);
+    HC._animateValue('hcOurPrice', Math.round(our * rate), sym);
+    HC._animateValue('hcSavings',  Math.round(sav * rate), sym);
+  },
+
+  _animateValue: function (id, target, sym) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var duration = 900, startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var p    = Math.min((ts - startTime) / duration, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = sym + Math.round(target * ease).toLocaleString();
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
   },
 
   checkLead: function () {
