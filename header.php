@@ -14,7 +14,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
       <path d="M12 2 L22 9 L12 22 L2 9 Z"/><path d="M2 9 L22 9"/><path d="M7 9 L12 2 L17 9 L12 22 Z"/>
     </svg>
-    <span>Maison Lumi&egrave;re</span>
+    <span>The Global Diamond Broker</span>
   </a>
   <div class="nav-links">
     <a href="#realm" data-scroll-to>Atelier</a>

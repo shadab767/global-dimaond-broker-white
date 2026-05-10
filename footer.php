@@ -2,12 +2,12 @@
   <footer>
     <div class="grid">
       <div>
-        <div class="brand">Maison Lumi&egrave;re</div>
+        <div class="brand">The Global Diamond Broker</div>
         <div class="brand-tag">Since 1983 &middot; Antwerp</div>
         <p class="about">A private brokerage representing collectors, couples and connoisseurs in the acquisition of the world&rsquo;s most extraordinary diamonds.</p>
       </div>
       <div>
-        <h5>Maison</h5>
+        <h5>The Broker</h5>
         <ul>
           <li><a href="#">The Atelier</a></li>
           <li><a href="#">Journal</a></li>
@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class="bottom">
-      <span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> Maison Lumi&egrave;re &middot; All rights reserved</span>
+      <span>&copy; <?php echo esc_html( date( 'Y' ) ); ?> The Global Diamond Broker &middot; All rights reserved</span>
       <span>Antwerp &middot; New York &middot; Sydney</span>
     </div>
   </footer>
