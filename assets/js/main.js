@@ -1,6 +1,9 @@
 /* The Global Diamond Broker — main.js */
 (function () {
 
+  // ===== Reduced-motion preference =====
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   // ===== Nav: glass background on scroll + dark mode over hero =====
   var navEl = document.querySelector('nav.top');
   var hero  = document.querySelector('.hero');
@@ -67,6 +70,7 @@
   });
 
   function updateParallax() {
+    if (reducedMotion) return;
     var vh = window.innerHeight;
     parallaxItems.forEach(function (item) {
       var r      = item.el.getBoundingClientRect();
@@ -108,6 +112,60 @@
     hPrev.addEventListener('click', function () { track.scrollBy({ left: -420, behavior: 'smooth' }); });
     hNext.addEventListener('click', function () { track.scrollBy({ left:  420, behavior: 'smooth' }); });
     track.setAttribute('data-lenis-prevent', '');
+  }
+
+  // ===== Slide-in nav drawer =====
+  var menuBtn      = document.querySelector('.nav-cta .menu');
+  var drawer       = document.getElementById('navDrawer');
+  var drawerOverlay = document.getElementById('navDrawerOverlay');
+  var drawerClose  = document.getElementById('navDrawerClose');
+
+  function openDrawer() {
+    if (!drawer) return;
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    drawerOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (lenis) lenis.stop();
+    drawerClose.focus();
+  }
+
+  function closeDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    drawerOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lenis) lenis.start();
+    if (menuBtn) menuBtn.focus();
+  }
+
+  if (menuBtn && drawer) {
+    menuBtn.addEventListener('click', function () {
+      menuBtn.setAttribute('aria-expanded', 'true');
+      openDrawer();
+    });
+    drawerClose.addEventListener('click', function () {
+      menuBtn.setAttribute('aria-expanded', 'false');
+      closeDrawer();
+    });
+    drawerOverlay.addEventListener('click', function () {
+      menuBtn.setAttribute('aria-expanded', 'false');
+      closeDrawer();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        menuBtn.setAttribute('aria-expanded', 'false');
+        closeDrawer();
+      }
+    });
+    // Close drawer when a nav link is clicked (single-page scroll)
+    drawer.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menuBtn.setAttribute('aria-expanded', 'false');
+        closeDrawer();
+      });
+    });
   }
 
 })();

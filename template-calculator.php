@@ -82,8 +82,8 @@ $home_url = esc_url( home_url( '/' ) );
             </button>
           </div>
           <div class="hc-nav">
-            <button class="hc-back" onclick="HC.prev()">&#8592; Back</button>
-            <button class="hc-cta" id="hcN2" disabled onclick="HC.next()">Continue &rarr;</button>
+            <button class="hc-back" type="button" onclick="HC.prev()">&#8592; Back</button>
+            <button class="hc-cta" type="button" id="hcN2" disabled onclick="HC.next()">Continue &rarr;</button>
           </div>
         </div>
 
@@ -91,16 +91,16 @@ $home_url = esc_url( home_url( '/' ) );
         <div class="hc-step" id="hcStep3">
           <p class="hc-q">What&rsquo;s your budget?</p>
           <div class="hc-curr-row">
-            <button class="hc-curr-btn active" onclick="HC.setCurr('CAD',this)">CAD (CA$)</button>
-            <button class="hc-curr-btn" onclick="HC.setCurr('USD',this)">USD (US$)</button>
+            <button class="hc-curr-btn active" type="button" onclick="HC.setCurr('CAD',this)">CAD (CA$)</button>
+            <button class="hc-curr-btn" type="button" onclick="HC.setCurr('USD',this)">USD (US$)</button>
           </div>
           <div class="hc-input-wrap">
             <span class="hc-sym" id="hcSym">CA$</span>
             <input class="hc-input" type="text" id="hcBudget" placeholder="e.g. 10,000" oninput="HC.fmtBudget(this)" inputmode="numeric" aria-label="Budget amount">
           </div>
           <div class="hc-nav">
-            <button class="hc-back" onclick="HC.prev()">&#8592; Back</button>
-            <button class="hc-cta" id="hcN3" disabled onclick="HC.next()">See My Savings &rarr;</button>
+            <button class="hc-back" type="button" onclick="HC.prev()">&#8592; Back</button>
+            <button class="hc-cta" type="button" id="hcN3" disabled onclick="HC.next()">See My Savings &rarr;</button>
           </div>
         </div>
 
@@ -113,8 +113,8 @@ $home_url = esc_url( home_url( '/' ) );
             <div class="hc-rrow hc-rrow-save"><span>You save</span><strong id="hcSavings">—</strong></div>
           </div>
           <div class="hc-nav">
-            <button class="hc-back" onclick="HC.prev()">&#8592; Back</button>
-            <button class="hc-cta" onclick="HC.next()">Get My Options &rarr;</button>
+            <button class="hc-back" type="button" onclick="HC.prev()">&#8592; Back</button>
+            <button class="hc-cta" type="button" onclick="HC.next()">Get My Options &rarr;</button>
           </div>
         </div>
 
@@ -125,8 +125,8 @@ $home_url = esc_url( home_url( '/' ) );
           <input class="hc-input hc-input-bare" type="tel"  id="hcWA"   placeholder="+1 (416) 555-0123" oninput="HC.checkLead()" autocomplete="tel"  aria-label="WhatsApp number">
           <p class="hc-trust">Certified stones, HD video &amp; broker pricing sent via WhatsApp. No spam, ever.</p>
           <div class="hc-nav">
-            <button class="hc-back" onclick="HC.prev()">&#8592; Back</button>
-            <button class="hc-cta" id="hcSubmit" disabled onclick="HC.submit()">Get Diamond Options &rarr;</button>
+            <button class="hc-back" type="button" onclick="HC.prev()">&#8592; Back</button>
+            <button class="hc-cta" type="button" id="hcSubmit" disabled onclick="HC.submit()">Get Diamond Options &rarr;</button>
           </div>
         </div>
 

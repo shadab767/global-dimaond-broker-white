@@ -9,6 +9,8 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
 <nav class="top">
   <a class="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
@@ -24,8 +26,26 @@
   </div>
   <div class="nav-cta">
     <span>EST. 1983</span>
-    <span class="menu">Menu <span style="display:inline-block;width:18px;height:1px;background:currentColor"></span></span>
+    <button class="menu" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navDrawer">Menu <span style="display:inline-block;width:18px;height:1px;background:currentColor" aria-hidden="true"></span></button>
   </div>
 </nav>
 
-<div class="page">
+<!-- NAV DRAWER -->
+<div class="nav-drawer" id="navDrawer" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+  <div class="nav-drawer-inner">
+    <div class="nav-drawer-head">
+      <span class="nav-drawer-brand">The Global Diamond Broker</span>
+      <button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu" type="button">&times;</button>
+    </div>
+    <nav class="nav-drawer-links">
+      <a href="#realm">Atelier</a>
+      <a href="#collection">Collection</a>
+      <a href="#journal">Journal</a>
+      <a href="#contact">Inquire</a>
+    </nav>
+    <div class="nav-drawer-foot">Est. 1983 &middot; Antwerp &middot; New York &middot; Sydney</div>
+  </div>
+</div>
+<div class="nav-drawer-overlay" id="navDrawerOverlay" aria-hidden="true"></div>
+
+<div class="page" id="main-content">

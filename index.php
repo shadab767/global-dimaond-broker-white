@@ -27,19 +27,19 @@
         </div>
         <p class="hc-q">What are you looking for?</p>
         <div class="hc-tiles" id="hc1Pills">
-          <button class="hc-tile" data-value="engagement" onclick="HC1.pick(this)">
+          <button class="hc-tile" type="button" data-value="engagement" onclick="HC1.pick(this)">
             <span class="hc-tile-label">Engagement</span>
             <span class="hc-tile-desc">Proposal &amp; bridal</span>
           </button>
-          <button class="hc-tile" data-value="investment" onclick="HC1.pick(this)">
+          <button class="hc-tile" type="button" data-value="investment" onclick="HC1.pick(this)">
             <span class="hc-tile-label">Investment</span>
             <span class="hc-tile-desc">Store-of-value stones</span>
           </button>
-          <button class="hc-tile" data-value="resale" onclick="HC1.pick(this)">
+          <button class="hc-tile" type="button" data-value="resale" onclick="HC1.pick(this)">
             <span class="hc-tile-label">Resale</span>
             <span class="hc-tile-desc">Estate &amp; upgrade</span>
           </button>
-          <button class="hc-tile" data-value="exploring" onclick="HC1.pick(this)">
+          <button class="hc-tile" type="button" data-value="exploring" onclick="HC1.pick(this)">
             <span class="hc-tile-label">Exploring</span>
             <span class="hc-tile-desc">Just browsing options</span>
           </button>
