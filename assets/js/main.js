@@ -1,22 +1,31 @@
 /* The Global Diamond Broker — main.js */
 (function () {
 
-  // ===== Flip nav to dark ink while over the white hero =====
+  // ===== Nav: glass background on scroll + dark mode over hero =====
   var navEl = document.querySelector('nav.top');
   var hero  = document.querySelector('.hero');
 
-  function updateNavMode() {
-    if (!hero || !navEl) return;
-    var heroBottom = hero.getBoundingClientRect().bottom;
-    if (heroBottom > 80) {
-      navEl.classList.add('dark');
-    } else {
-      navEl.classList.remove('dark');
+  function updateNav() {
+    if (!navEl) return;
+
+    // Pages without a hero (calculator) — always show glass nav
+    if (!hero) {
+      navEl.classList.add('scrolled');
+      return;
     }
+
+    var scrollY = window.scrollY || window.pageYOffset;
+
+    // Glass background appears as soon as the user starts scrolling
+    navEl.classList.toggle('scrolled', scrollY > 30);
+
+    // Dark ink text while hero is still in viewport
+    var heroBottom = hero.getBoundingClientRect().bottom;
+    navEl.classList.toggle('dark', heroBottom > 80);
   }
 
-  window.addEventListener('scroll', updateNavMode, { passive: true });
-  updateNavMode();
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
 
   // ===== Lenis smooth scroll =====
   var lenis = new Lenis({
@@ -71,6 +80,7 @@
     });
   }
 
+  lenis.on('scroll', updateNav);
   lenis.on('scroll', updateParallax);
   window.addEventListener('resize', updateParallax);
   updateParallax();
