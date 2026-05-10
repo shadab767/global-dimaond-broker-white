@@ -109,14 +109,11 @@ var HC1 = {
     document.querySelectorAll('#hc1Pills .hc-tile').forEach(function (b) { b.classList.remove('active'); });
     el.classList.add('active');
     HC1.intent = el.dataset.value;
-    var btn = document.getElementById('hcN1');
-    if (btn) btn.disabled = false;
   },
   go: function () {
-    if (!HC1.intent) return;
     var btn  = document.getElementById('hcN1');
     var base = (btn && btn.dataset.url) ? btn.dataset.url.replace(/\/$/, '') : '/calculator';
-    window.location.href = base + '?intent=' + encodeURIComponent(HC1.intent);
+    window.location.href = base + '?intent=' + encodeURIComponent(HC1.intent || 'exploring');
   }
 };
 

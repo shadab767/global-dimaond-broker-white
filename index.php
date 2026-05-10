@@ -44,7 +44,7 @@
             <span class="hc-tile-desc">Just browsing options</span>
           </button>
         </div>
-        <button class="hc-cta" id="hcN1" disabled
+        <button class="hc-cta" id="hcN1"
           data-url="<?php echo esc_url(home_url('/calculator/')); ?>"
           onclick="HC1.go()">
           Show My Savings &nbsp;&rarr;
