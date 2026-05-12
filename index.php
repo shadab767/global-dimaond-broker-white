@@ -219,7 +219,7 @@
   <section class="atelier">
     <div class="grid">
       <div class="img-wrap">
-        <img data-scroll data-scroll-speed="-1.5" alt="Colin — The Global Diamond Broker" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/Colin.jpg' ); ?>" loading="lazy" />
+        <img data-scroll data-scroll-speed="-1.5" alt="Colin — The Global Diamond Broker" src="<?php echo esc_url( get_stylesheet_directory_uri() . '/assets/js/images/Colin-crop.jpg' ); ?>" loading="lazy" />
       </div>
       <div class="copy">
         <span class="eyebrow"><span class="dot"></span>The Global Diamond Broker &mdash; Est. 1983</span>
