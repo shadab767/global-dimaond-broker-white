@@ -181,11 +181,15 @@ var HC1 = {
   go: function () {
     var btn  = document.getElementById('hcN1');
     var base = (btn && btn.dataset.url) ? btn.dataset.url.replace(/\/$/, '') : '/calculator';
-    window.location.href = base + '?intent=' + encodeURIComponent(HC1.intent || 'exploring');
+    if (HC1.intent) {
+      window.location.href = base + '?intent=' + encodeURIComponent(HC1.intent);
+    } else {
+      window.location.href = base;
+    }
   }
 };
 
-/* ===== CALCULATOR PAGE — Steps 2-5 ===== */
+/* ===== CALCULATOR PAGE — Steps 1-5 ===== */
 // Per-carat broker prices in CAD
 var HC_PPC = {
   natural: { commercial: 5200, premium: 8800, investment: 16500 },
@@ -193,7 +197,7 @@ var HC_PPC = {
 };
 
 var HC = {
-  s: { step: 2, intent: null, type: null, carat: 1.0, quality: null, currency: 'CAD' },
+  s: { step: 1, intent: null, type: null, carat: 1.0, quality: null, currency: 'CAD' },
 
   pick: function (el) {
     var field = el.dataset.field;
@@ -204,9 +208,34 @@ var HC = {
   },
 
   _chk: function () {
-    var s = HC.s, btn;
-    if (s.step === 2) { btn = document.getElementById('hcN2'); if (btn) btn.disabled = !(s.type && s.quality); }
-    if (s.step === 3) { btn = document.getElementById('hcN3'); if (btn) btn.disabled = HC._rawBudget() < 500; }
+    var s = HC.s, btn, ready;
+    if (s.step === 1) {
+      btn   = document.getElementById('hcN1Calc');
+      ready = !!s.intent;
+      if (btn) btn.disabled = !ready;
+      var hintIntent = document.getElementById('hcHintIntent');
+      var hintStep1  = document.getElementById('hcHint1Calc');
+      if (hintIntent) hintIntent.classList.toggle('hidden', ready);
+      if (hintStep1)  hintStep1.classList.toggle('hidden', ready);
+    }
+    if (s.step === 2) {
+      btn   = document.getElementById('hcN2');
+      ready = !!(s.type && s.quality);
+      if (btn) btn.disabled = !ready;
+      var hintStep2 = document.getElementById('hcHint2');
+      var hintType  = document.getElementById('hcHintType');
+      var hintQual  = document.getElementById('hcHintQuality');
+      if (hintStep2) hintStep2.classList.toggle('hidden', ready);
+      if (hintType)  hintType.classList.toggle('hidden', !!s.type);
+      if (hintQual)  hintQual.classList.toggle('hidden', !!s.quality);
+    }
+    if (s.step === 3) {
+      btn   = document.getElementById('hcN3');
+      ready = HC._rawBudget() >= 500;
+      if (btn) btn.disabled = !ready;
+      var hintBudget = document.getElementById('hcHint3');
+      if (hintBudget) hintBudget.classList.toggle('hidden', ready);
+    }
   },
 
   _rawBudget: function () {
@@ -238,7 +267,7 @@ var HC = {
   next: function () { HC._go(HC.s.step + 1); },
 
   prev: function () {
-    if (HC.s.step === 2) {
+    if (HC.s.step === 1) {
       var page = document.getElementById('calcPage');
       window.location.href = (page && page.dataset.homeUrl) ? page.dataset.homeUrl : '/';
       return;
@@ -254,27 +283,51 @@ var HC = {
     var nxtId = n <= 5 ? 'hcStep' + n : 'hcStepOk';
     var nxt   = document.getElementById(nxtId);
     if (nxt) nxt.classList.add('active');
-    // Progress: HC steps 2-5 map to visual steps 1-4
-    var visual = Math.min(Math.max(n - 1, 1), 4);
-    var fill   = document.getElementById('calcProgFill');
-    var label  = document.getElementById('calcProgLabel');
-    if (fill)  fill.style.width = Math.round((visual / 4) * 100) + '%';
-    if (label) label.textContent = n <= 5 ? 'Step ' + visual + ' of 4' : 'Complete';
+    // Pre-select intent tile if navigating back to step 1 with intent already set
+    if (n === 1 && HC.s.intent) {
+      document.querySelectorAll('#hcStep1 .hc-tile').forEach(function (t) {
+        t.classList.toggle('active', t.dataset.value === HC.s.intent);
+      });
+    }
+    // Progress: steps 1-5 map to "Step N of 5"
+    var fill  = document.getElementById('calcProgFill');
+    var label = document.getElementById('calcProgLabel');
+    if (n <= 5) {
+      if (fill)  fill.style.width = Math.round((n / 5) * 100) + '%';
+      if (label) label.textContent = 'Step ' + n + ' of 5';
+    } else {
+      if (fill)  fill.style.width = '100%';
+      if (label) label.textContent = 'Complete';
+    }
     if (n === 4) HC._calc();
     HC._chk();
   },
 
   _calc: function () {
-    var s   = HC.s;
-    var ppc = (HC_PPC[s.type || 'natural'] || HC_PPC.natural)[s.quality || 'premium'];
-    var our = ppc * s.carat;
-    var ret = our * 1.45;
-    var sav = ret - our;
-    var rate = s.currency === 'USD' ? 0.74 : 1;
-    var sym  = s.currency === 'USD' ? 'US$ ' : 'CA$ ';
+    var s       = HC.s;
+    var ppc     = (HC_PPC[s.type || 'natural'] || HC_PPC.natural)[s.quality || 'premium'];
+    var our     = ppc * s.carat;
+    var ret     = our * 1.45;
+    var sav     = ret - our;
+    var rate    = s.currency === 'USD' ? 0.74 : 1;
+    var sym     = s.currency === 'USD' ? 'US$ ' : 'CA$ ';
+    var pct     = Math.round((sav / ret) * 100);
+    var oursW   = Math.round((our / ret) * 100);
+
+    HC._animateValue('hcSavings',  Math.round(sav * rate), sym);
     HC._animateValue('hcRetail',   Math.round(ret * rate), sym);
     HC._animateValue('hcOurPrice', Math.round(our * rate), sym);
-    HC._animateValue('hcSavings',  Math.round(sav * rate), sym);
+
+    var pctEl = document.getElementById('hcSavingsPct');
+    if (pctEl) pctEl.textContent = pct + '% below retail';
+
+    // Animate comparison bars after initial paint
+    setTimeout(function () {
+      var barRetail = document.getElementById('hcBarRetail');
+      var barOurs   = document.getElementById('hcBarOurs');
+      if (barRetail) barRetail.style.width = '100%';
+      if (barOurs)   barOurs.style.width   = oursW + '%';
+    }, 120);
   },
 
   _animateValue: function (id, target, sym) {
@@ -315,10 +368,15 @@ var HC = {
   init: function () {
     var page = document.getElementById('calcPage');
     if (!page) return;
-    var params  = new URLSearchParams(window.location.search);
-    HC.s.intent = params.get('intent') || 'exploring';
-    HC.s.step   = 1;
-    HC._go(2);
+    var params = new URLSearchParams(window.location.search);
+    var intent = params.get('intent');
+    var valid  = ['engagement', 'investment', 'resale', 'exploring'];
+    if (intent && valid.indexOf(intent) !== -1) {
+      HC.s.intent = intent;
+      HC._go(2);
+    } else {
+      HC._go(1);
+    }
   }
 };
 

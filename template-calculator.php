@@ -45,6 +45,35 @@ $home_url = esc_url( home_url( '/' ) );
 
       <div class="hc hc-page" id="calcMain">
 
+        <!-- Step 1 — Intent (shown when arriving without ?intent param) -->
+        <div class="hc-step" id="hcStep1">
+          <p class="hc-q">What are you looking for?</p>
+          <div class="hc-tiles">
+            <button class="hc-tile" data-field="intent" data-value="engagement" onclick="HC.pick(this)">
+              <span class="hc-tile-label">Engagement</span>
+              <span class="hc-tile-desc">Proposal &amp; bridal</span>
+            </button>
+            <button class="hc-tile" data-field="intent" data-value="investment" onclick="HC.pick(this)">
+              <span class="hc-tile-label">Investment</span>
+              <span class="hc-tile-desc">Store-of-value stones</span>
+            </button>
+            <button class="hc-tile" data-field="intent" data-value="resale" onclick="HC.pick(this)">
+              <span class="hc-tile-label">Resale</span>
+              <span class="hc-tile-desc">Estate &amp; upgrade</span>
+            </button>
+            <button class="hc-tile" data-field="intent" data-value="exploring" onclick="HC.pick(this)">
+              <span class="hc-tile-label">Exploring</span>
+              <span class="hc-tile-desc">Just browsing options</span>
+            </button>
+          </div>
+          <p class="hc-field-hint" id="hcHintIntent">Select one to continue</p>
+          <div class="hc-nav">
+            <button class="hc-back" type="button" onclick="HC.prev()">&#8592; Back to home</button>
+            <button class="hc-cta" type="button" id="hcN1Calc" disabled onclick="HC.next()">Continue &rarr;</button>
+          </div>
+          <p class="hc-step-hint" id="hcHint1Calc">Choose what you&rsquo;re looking for above to continue.</p>
+        </div>
+
         <!-- Step 2 — Type + Carat + Quality -->
         <div class="hc-step" id="hcStep2">
           <p class="hc-q">Diamond type</p>
@@ -58,6 +87,7 @@ $home_url = esc_url( home_url( '/' ) );
               <span class="hc-tile-desc">Identical, lower cost</span>
             </button>
           </div>
+          <p class="hc-field-hint" id="hcHintType">Select one to continue</p>
           <div class="hc-slider">
             <div class="hc-slider-top">
               <span class="hc-q" style="margin:0;font-size:16px">Carat size</span>
@@ -81,10 +111,12 @@ $home_url = esc_url( home_url( '/' ) );
               <span class="hc-tile-desc">Top 5% of stones</span>
             </button>
           </div>
+          <p class="hc-field-hint" id="hcHintQuality">Select one to continue</p>
           <div class="hc-nav">
             <button class="hc-back" type="button" onclick="HC.prev()">&#8592; Back</button>
             <button class="hc-cta" type="button" id="hcN2" disabled onclick="HC.next()">Continue &rarr;</button>
           </div>
+          <p class="hc-step-hint" id="hcHint2">Choose a diamond type and quality above to continue.</p>
         </div>
 
         <!-- Step 3 — Budget -->
@@ -102,31 +134,74 @@ $home_url = esc_url( home_url( '/' ) );
             <button class="hc-back" type="button" onclick="HC.prev()">&#8592; Back</button>
             <button class="hc-cta" type="button" id="hcN3" disabled onclick="HC.next()">See My Savings &rarr;</button>
           </div>
+          <p class="hc-step-hint" id="hcHint3">Enter a budget of at least $500 to continue.</p>
         </div>
 
         <!-- Step 4 — Results -->
         <div class="hc-step" id="hcStep4">
-          <p class="hc-q" style="margin-bottom:14px">Your savings breakdown</p>
-          <div class="hc-results">
-            <div class="hc-rrow"><span>Retail estimate</span><strong id="hcRetail">—</strong></div>
-            <div class="hc-rrow hc-rrow-ours"><span>Our direct price</span><strong id="hcOurPrice">—</strong></div>
-            <div class="hc-rrow hc-rrow-save"><span>You save</span><strong id="hcSavings">—</strong></div>
+
+          <p class="hc-res-eyebrow">Your Private Savings Estimate</p>
+
+          <!-- Hero savings card -->
+          <div class="hc-res-hero">
+            <span class="hc-res-save-label">You save</span>
+            <div class="hc-res-save-amount" id="hcSavings">—</div>
+            <div class="hc-res-pct-wrap">
+              <span class="hc-res-pct" id="hcSavingsPct">calculating&hellip;</span>
+            </div>
+            <p class="hc-res-vs">vs. any certified retailer in North America</p>
           </div>
+
+          <!-- Price comparison with animated bars -->
+          <div class="hc-res-compare">
+            <div class="hc-res-crow hc-res-crow-retail">
+              <div class="hc-res-crow-top">
+                <span class="hc-res-crow-label">Retail estimate</span>
+                <span class="hc-res-crow-val" id="hcRetail">—</span>
+              </div>
+              <div class="hc-res-bar-wrap">
+                <div class="hc-res-bar-fill hc-res-bar-retail" id="hcBarRetail"></div>
+              </div>
+            </div>
+            <div class="hc-res-crow hc-res-crow-ours">
+              <div class="hc-res-crow-top">
+                <span class="hc-res-crow-label">Broker direct price</span>
+                <span class="hc-res-crow-val" id="hcOurPrice">—</span>
+              </div>
+              <div class="hc-res-bar-wrap">
+                <div class="hc-res-bar-fill hc-res-bar-ours" id="hcBarOurs"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Trust signals -->
+          <div class="hc-res-trust">
+            <span class="hc-res-pill">GIA &amp; IGI Certified</span>
+            <span class="hc-res-pill">HD Video Included</span>
+            <span class="hc-res-pill">Same-Day Response</span>
+          </div>
+
+          <p class="hc-res-note">&ldquo;These prices are not advertised. They are exclusive to private clients only.&rdquo;</p>
+
           <div class="hc-nav">
-            <button class="hc-back" type="button" onclick="HC.prev()">&#8592; Back</button>
-            <button class="hc-cta" type="button" onclick="HC.next()">Get My Options &rarr;</button>
+            <button class="hc-back" type="button" onclick="HC.prev()">&#8592; Adjust</button>
+            <button class="hc-cta hc-cta-book" type="button" onclick="HC.next()">Book My Private Consultation &rarr;</button>
           </div>
         </div>
 
         <!-- Step 5 — Lead capture -->
         <div class="hc-step" id="hcStep5">
-          <p class="hc-q">Where shall we send your options?</p>
-          <input class="hc-input hc-input-bare" type="text" id="hcName" placeholder="Your name"          oninput="HC.checkLead()" autocomplete="name" aria-label="Your name">
-          <input class="hc-input hc-input-bare" type="tel"  id="hcWA"   placeholder="+1 (416) 555-0123" oninput="HC.checkLead()" autocomplete="tel"  aria-label="WhatsApp number">
-          <p class="hc-trust">Certified stones, HD video &amp; broker pricing sent via WhatsApp. No spam, ever.</p>
+          <div class="hc-lead-intro">
+            <p class="hc-res-eyebrow">One Last Step</p>
+            <p class="hc-q" style="margin-bottom:6px">Claim your broker pricing</p>
+            <p class="hc-lead-sub">Colin will personally reach out with certified options, HD video &amp; your exact private price &mdash; usually within 2 hours.</p>
+          </div>
+          <input class="hc-input hc-input-bare" type="text" id="hcName" placeholder="Your name" oninput="HC.checkLead()" autocomplete="name" aria-label="Your name">
+          <input class="hc-input hc-input-bare" type="tel"  id="hcWA"   placeholder="+1 (416) 555-0123" oninput="HC.checkLead()" autocomplete="tel" aria-label="WhatsApp number">
+          <p class="hc-trust">Private &amp; confidential &mdash; no spam, no obligation, ever.</p>
           <div class="hc-nav">
             <button class="hc-back" type="button" onclick="HC.prev()">&#8592; Back</button>
-            <button class="hc-cta" type="button" id="hcSubmit" disabled onclick="HC.submit()">Get Diamond Options &rarr;</button>
+            <button class="hc-cta" type="button" id="hcSubmit" disabled onclick="HC.submit()">Book My Consultation &rarr;</button>
           </div>
         </div>
 
@@ -134,11 +209,11 @@ $home_url = esc_url( home_url( '/' ) );
         <div class="hc-step" id="hcStepOk">
           <div class="hc-success">
             <div class="hc-tick" aria-hidden="true">&#10003;</div>
-            <p class="hc-q" style="text-align:center">You&rsquo;re all set.</p>
-            <p class="hc-trust" style="text-align:center;margin-top:8px">Colin will reach out within hours with certified options, HD video &amp; exclusive broker pricing.</p>
+            <p class="hc-q" style="text-align:center">Consultation Booked.</p>
+            <p class="hc-trust" style="text-align:center;margin-top:10px">Colin will reach out personally within 2 hours with certified options, HD video &amp; your private broker price. Keep an eye on WhatsApp.</p>
             <a class="hc-cta" id="hcWACTA" href="#" target="_blank" rel="noopener noreferrer"
                style="display:block;margin-top:22px;text-align:center;text-decoration:none">
-              Chat on WhatsApp &rarr;
+              Open WhatsApp Now &rarr;
             </a>
           </div>
         </div>
